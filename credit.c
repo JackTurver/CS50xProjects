@@ -58,28 +58,21 @@ int main(void)
    // If number is less than 13 digits starting with 4 then can't be a credit number
    // Same if larger than 16 digits starting with 55 but will be 9 recurring after as this is the max valid number
    // Use a get_long not an int as it will not fit
-   if ((a % 10) == 0 && ((number >= 13) && (number <= 16)))
+   // American Express uses 15-digit numbers, start with 34 or 37
+   // MasterCard uses 16-digit numbers, starts with 51, 52, 53, 54, or 55
+   // Visa uses 13- and 16-digit numbers, start with 4
+   // last line of output be AMEX\n or MASTERCARD\n or VISA\n or INVALID\n
+   if (((a % 10) == 0) && ((h == 34) || (h == 37)) && (number == 15))
    {
-      // American Express uses 15-digit numbers, start with 34 or 37
-      // MasterCard uses 16-digit numbers, starts with 51, 52, 53, 54, or 55
-      // Visa uses 13- and 16-digit numbers, start with 4
-      // last line of output be AMEX\n or MASTERCARD\n or VISA\n or INVALID\n
-      if ((h == 34) || (h == 37))
-      {
-         printf("AMEX\n");
-      }
-      else if ((h >= 40) && (h <= 49))
-      {
-         printf("VISA\n");
-      }
-      else if ((h >= 51) && (h <= 55))
-      {
-         printf("MASTERCARD\n");
-      }
-      else
-      {
-         printf("INVALID\n");
-      }
+      printf("AMEX\n");
+   }
+   else if (((a % 10) == 0) && (h >= 40) && (h <= 49) && ((number == 13) || (number == 16)))
+   {
+      printf("VISA\n");
+   }
+   else if (((a % 10) == 0) && (h >= 51) && (h <= 55) && (number == 16))
+   {
+      printf("MASTERCARD\n");
    }
    else
    {
