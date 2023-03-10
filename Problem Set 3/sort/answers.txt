@@ -1,0 +1,66 @@
+//Need to use the big O notation to work this out as there can be overlaps in analysis.
+    //Selection sorting can only have O(n^2).
+    //Bubble can be O(n^2) at worst or O(n) at best.
+    //Merge is O(nlog(n)) regardless.
+//Can work out the big O notation by working out the gradient and how it changes as n increases.
+    //To work out the gradient it is t/n.
+
+
+sort1 uses: Bubble sorting
+
+How do you know?: This program has the gradient (t/n) of the data increasing as n increases for all data sets. However as the data set gets progressivley more pre-sorted the gradient (t/n) decreases. Finally when the data is fully pre-sorted the big O value is close to O(n) with a minimal increase in time as n increases due to the computer still needing to take the time to scan through the numbers. Also has a best big O value of approx O(n) and worst big O value of approx O(n^2).
+
+    random5000.txt  = 0.079s       (t/n) ratio = 1
+    random10000.txt = 0.251s       (t/n) ratio = 1.5
+    random50000.txt = 8.122s       (t/n) ratio = 10
+
+    reversed5000.txt  = 0.083s     (t/n) ratio = 1
+    reversed10000.txt = 0.331s     (t/n) ratio = 2
+    reversed50000.txt = 6.122s     (t/n) ratio = 7.4
+
+    sorted5000.txt  = 0.026s       (t/n) ratio = 1
+    sorted10000.txt = 0.065s       (t/n) ratio = 1.5
+    sorted50000.txt = 0.450s       (t/n) ratio = 1.7
+
+    Best Big O notation ~ O(1)
+    Worst Big O notation ~ O(n)
+
+
+sort2 uses: Merge sorting
+
+How do you know?: This is the only program which has the gradient (t/n) decreasing as n increases. This becomes more apparent as the data becomes more pre-sorted. The best and worst big O value is somewhat close to O(nlog(n)).
+
+    random5000.txt  = 0.049s       (t/n) ratio = 1
+    random10000.txt = 0.072s       (t/n) ratio = 0.73
+    random50000.txt = 0.363s       (t/n) ratio = 0.74
+
+    reversed5000.txt  = 0.045s     (t/n) ratio = 1
+    reversed10000.txt = 0.083s     (t/n) ratio = 0.9
+    reversed50000.txt = 0.434s     (t/n) ratio = 0.96
+
+    sorted5000.txt  = 0.050s       (t/n) ratio = 1
+    sorted10000.txt = 0.080s       (t/n) ratio = 0.80
+    sorted50000.txt = 0.330s       (t/n) ratio = 0.66
+
+    Best Big O notation ~ O(nlog(n))
+    Worst Big O notation ~ O(nlog(n))
+
+
+sort3 uses: Selection sorting
+
+How do you know?: This program has the gradient (t/n) of the data increasing as n increases for all data sets. No obvious change in gradient between the data sets even though they become progressivley more pre-sorted. Also has a best and worst big O value of approx O(n^2).
+
+    random5000.txt  = 0.071s       (t/n) ratio = 1
+    random10000.txt = 0.164s       (t/n) ratio = 1.15
+    random50000.txt = 4.068s       (t/n) ratio = 5.72
+
+    reversed5000.txt  = 0.057s     (t/n) ratio = 1
+    reversed10000.txt = 0.205s     (t/n) ratio = 1.79
+    reversed50000.txt = 3.745s     (t/n) ratio = 6.57
+
+    sorted5000.txt  = 0.070s       (t/n) ratio = 1
+    sorted10000.txt = 0.169s       (t/n) ratio = 1.2
+    sorted50000.txt = 3.535s       (t/n) ratio = 5.05
+
+    Best Big O notation ~ O(n^2)
+    Worst Big O notation ~ O(n^2)
